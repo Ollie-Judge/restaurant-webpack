@@ -1,0 +1,12 @@
+@font-face {
+  font-family: "harvest-season";
+  src: url("./harvest-season.otf") format("otf");
+  font-weight: 600;
+  font-style: normal;
+}
+
+.hello {
+  color: red;
+  background: url("./icon.png");
+  font-family: "harvest-season";
+}
