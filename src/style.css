@@ -10,3 +10,20 @@
   background: url("./icon.png");
   font-family: "harvest-season";
 }
+
+#headerDiv {
+  display: flex;
+  flex-direction: column;
+}
+
+#headerContainer {
+  flex-direction: column;
+  text-align: center;
+  margin: auto;
+}
+
+#buttonDiv {
+  flex-direction: column;
+  text-align: center;
+  margin: auto;
+}
