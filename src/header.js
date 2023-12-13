@@ -1,5 +1,10 @@
+import Icon from "./icon.png";
+
 function header() {
   const headerDiv = document.createElement("div");
+
+  const myIcon = new Image();
+  myIcon.src = Icon;
 
   const headerContainer = document.createElement("div");
   headerContainer.id = "headerContainer";
@@ -16,7 +21,9 @@ function header() {
   const aboutbutton = document.createElement("button");
 
   contactbutton.innerHTML = "Contact";
+  contactbutton.id = "contactButton";
   aboutbutton.innerHTML = "About";
+  aboutbutton.id = "aboutButton";
 
   headerDiv.appendChild(headerContainer);
   buttonDiv.appendChild(contactbutton);

@@ -1,25 +1,68 @@
 import _ from "lodash";
 import "./style.css";
-import Icon from "./icon.png";
-import test from "./test.js";
 
 function component() {
   const element = document.createElement("div");
-  const btn = document.createElement("button");
 
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(["Hello", "webpack"], " ");
-  element.classList.add("hello");
+  let pageChoice = "default";
 
-  btn.innerHTML = "Click me and check the console!";
-  btn.onclick = test;
+  let contactButton = document.getElementById("contactButton");
+  let aboutButton = document.getElementById("aboutButton");
+
+  contactButton.addEventListener("click", function () {
+    pageChoice = "contact";
+    console.log(pageChoice);
+    check();
+  });
+
+  aboutButton.addEventListener("click", function () {
+    pageChoice = "about";
+    console.log(pageChoice);
+    check();
+  });
+
+  if (pageChoice === "default") {
+    let pTag = document.createElement("p");
+    pTag.innerText =
+      "This Restaurant is excellent, you should come and eat here some time";
+
+    element.appendChild(pTag);
+  }
+
+  const check = () => {
+    switch (pageChoice) {
+      case "contact":
+        const form = document.createElement("form");
+        const nameInput = document.createElement("input");
+
+        nameInput.placeholder = "First Name";
+
+        form.appendChild(nameInput);
+        element.remove(pTag);
+
+        element.appendChild(form);
+        break;
+      case "about":
+        const about = document.createElement("p");
+
+        about.innerText =
+          "welcome to our about page, this is where you will find stuff out about us";
+
+        element.remove(pTag);
+
+        element.appendChild(about);
+        break;
+    }
+  };
+  // if ((pageChoice = "default")) {
+  //   const pTag = document.createElement("p");
+  //   pTag.innerText =
+  //     "This Restaurant is excellent, you should come and eat here some time";
+
+  //   element.appendChild(pTag);
+  // }
 
   // Add the image to our existing div.
-  const myIcon = new Image();
-  myIcon.src = Icon;
-
-  element.appendChild(myIcon);
-  element.appendChild(btn);
 
   return element;
 }
